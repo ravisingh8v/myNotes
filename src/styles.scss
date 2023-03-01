@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// Project base and component style import
+
+@import "assets/scss/base/index";
+
+// Vendor base and component style import
+
+@import "assets/scss/vendor/bootstrap-base";
+
+@import "assets/scss/vendor/bootstrap-components";
+
+// Project Specific Components
+@import "assets/scss/component/index";
+
+// Now other style import
+
+@import "assets/scss/layout/index";
+
+@import "assets/scss/utilities/index";
+
+// ANGULAR CDK
+@import "@angular/cdk/overlay-prebuilt.css";
