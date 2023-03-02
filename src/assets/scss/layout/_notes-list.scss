@@ -1,0 +1,42 @@
+.list-card {
+  position: relative;
+  max-height: 120px;
+  .note-list-close {
+    position: absolute;
+    right: 3%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 5px;
+    background-color: rgba(255, 0, 0, 0.103);
+    color: $danger;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.2s;
+    transform: scale(0);
+  }
+  &:hover {
+    .note-list-close {
+      opacity: 1;
+      transform: scale(1);
+      transition: background-color 0.2s linear;
+      &:active {
+        background-color: rgba(255, 0, 0, 0.144);
+      }
+    }
+  }
+  .note-list-overlay {
+    position: absolute;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      to bottom,
+      (rgba($light, 0.1)) 0%,
+      (rgba($light, 0.6)) 30%,
+      (rgba($light, 1)) 100%
+    );
+  }
+}

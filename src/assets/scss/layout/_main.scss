@@ -1,1 +1,6 @@
-
+.notes-container {
+  width: 500px;
+  @include media-breakpoint-down(sm) {
+    width: 100%;
+  }
+}
