@@ -1,0 +1,21 @@
+<div class="bg-white px-5 py-5 rounded">
+  <form action="" [formGroup]="notesForm" (ngSubmit)="notesFormSubmit()">
+    <!-- inoput fields  -->
+    <div class="d-flex flex-column">
+      <input type="text" class="my-1 p-1 form-control" placeholder="Title" name="" id="" formControlName="title">
+      <div *ngIf="notesForm.controls['title'].invalid" class="text-danger">
+        <p *ngIf="isSubmitted || notesForm.controls['title'].touched ">this field is required</p>
+      </div>
+      <textarea class=" my-1 p-2 form-control" name="" placeholder="Description" id="" cols="30" rows="5"
+        formControlName="description"></textarea>
+      <div *ngIf="notesForm.controls['description'].invalid" class="text-danger">
+        <p *ngIf="isSubmitted || notesForm.controls['description'].touched ">this field is required</p>
+      </div>
+    </div>
+    <!-- btns -->
+    <div class="d-flex mt-2">
+      <button class="me-1 btn btn-primary w-50" type="submit">Submit</button>
+      <button class="ms-1 btn btn-secondary w-50" type="reset" (click)="cancelForm()"> Cancel</button>
+    </div>
+  </form>
+</div>
