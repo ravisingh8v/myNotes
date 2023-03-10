@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms'
 import { ApiService } from './core/service/api.service';
 import { OverlayService } from './core/service/overlay.service';
+import { NotesCommunicationService } from './notes/service/notes-communication.service';
+import { TodoCommunicationServiceService } from './to-do/service/todo-communication-service.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { OverlayService } from './core/service/overlay.service';
     HttpClientModule,
 
   ],
-  providers: [ApiService, OverlayService],
+  providers: [ApiService, OverlayService, NotesCommunicationService, TodoCommunicationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

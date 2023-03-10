@@ -1,1 +1,2 @@
-<app-notes-form-presentation (notesList)="getFormNotes($event)"></app-notes-form-presentation>
+<app-notes-form-presentation (notesList)="getFormNotes($event)" (editList)="updatedata($event)"
+  [noteEdit]="noteEdit | async" (noteListId)="editNote($event)"></app-notes-form-presentation>

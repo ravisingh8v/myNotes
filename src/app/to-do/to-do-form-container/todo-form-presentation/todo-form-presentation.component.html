@@ -1,0 +1,12 @@
+<div class="todo-header d-flex justify-content-center py-4" [ngClass]="isDark?'dark-bg-pic':'light-bg-pic'">
+  <div class="w-25 my-5">
+    <div class="d-flex justify-content-between text-white">
+      <h2 class="fs-1">TODO</h2>
+      <span class="fs-3 bi {{currentTheme}}" (click)="themeChange()"></span>
+    </div>
+    <div>
+      <input type="text" placeholder="Add todo here" class="form-control fs-5 p-2"
+        [ngClass]="isDark? 'text-white bg-dark':'text-dark'">
+    </div>
+  </div>
+</div>

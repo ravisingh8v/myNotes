@@ -23,6 +23,7 @@ export class NotesFormPresenterService {
   submitForm(employee: FormGroup) {
     if (employee.valid) {
       this.notesList.next(employee.value)
+
     }
   }
 

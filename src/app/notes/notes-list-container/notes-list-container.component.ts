@@ -9,11 +9,19 @@ import { NotesForm } from '../notes-form-container/notes-form.model';
   styleUrls: ['./notes-list-container.component.scss']
 })
 export class NotesListContainerComponent implements OnInit {
-  public notesList: Observable<NotesForm[]>
+  public notesList: Observable<NotesForm[] | null>
   constructor(private apiService: ApiService) {
     this.notesList = new Observable()
   }
   ngOnInit(): void {
     this.notesList = this.apiService.getNotes()
+  }
+  deleteItem(id: number) {
+    if (id) {
+      this.apiService.deleteNote(id).subscribe((res) => {
+        this.notesList = this.apiService.getNotes()
+      })
+    }
+
   }
 }

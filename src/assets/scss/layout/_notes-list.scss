@@ -1,20 +1,30 @@
+%note-action-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px;
+  transition: all 0.3s linear;
+  opacity: 0;
+  top: 10%;
+  transform: scale(0);
+  border-radius: 5px;
+}
 .list-card {
   position: relative;
   max-height: 120px;
+  transition: all 5s linear;
   .note-list-close {
-    position: absolute;
+    @extend %note-action-icon;
     right: 3%;
-    top: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 5px;
     background-color: rgba(255, 0, 0, 0.103);
     color: $danger;
-    transition: all 0.3s linear;
-    opacity: 0;
-    transform: scale(0);
-    border-radius: 5px;
+  }
+  .note-list-edit {
+    @extend %note-action-icon;
+    right: 10%;
+    background-color: rgba(0, 132, 255, 0.171);
+    color: white;
   }
   &:hover {
     .note-list-close {
@@ -22,6 +32,14 @@
       transform: scale(1);
       &:active {
         background-color: rgba(255, 0, 0, 0.144);
+        transform: scale(1.1);
+      }
+    }
+    .note-list-edit {
+      opacity: 1;
+      transform: scale(1);
+      &:active {
+        background-color: rgba(0, 132, 255, 0.384);
         transform: scale(1.1);
       }
     }
@@ -36,7 +54,7 @@
       to bottom,
       (rgba($light, 0.1)) 0%,
       (rgba($light, 0.6)) 30%,
-      (rgba($light, 1)) 100%
+      (rgba($light, 1)) 70%
     );
   }
 }

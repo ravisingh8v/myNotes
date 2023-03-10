@@ -1,20 +1,17 @@
 <div class="h-100 d-flex flex-column">
-  <div class="flex-grow-1">
-    <div #listCard class="d-flex flex-column w-100 list-card bg-light py-3 px-4 my-3" *ngFor="let data of notesList">
+  <div class="flex-grow-1 all_list">
+    <div class="d-flex flex-column w-100 list-card bg-light pt-3 pb-3 px-4 my-3 overflow-hidden"
+      *ngFor="let data of notesList">
       <h5>{{data.title}}</h5>
-      <p class="fs-7">{{data.title}}</p>
-      <span class="note-list-close bi bi-x-lg"></span>
+      <p class="fs-7 overflow-auto">{{data.description}}</p>
+      <span class="note-list-close bi bi-x-lg" (click)="deleteList(data.id)"></span>
+      <span class="note-list-edit bi bi-pencil-square" (click)="editData(data.id)"></span>
       <div class="note-list-overlay p-2"></div>
     </div>
-    <!-- <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div>
-    <div class="list-card bg-light py-3 px-4 my-3">hello i am one</div> -->
   </div>
-  <div class="">
-    <a class="border w-100 text-center btn btn-primary" (click)="openForm()">Add Notes</a>
+  <div class="d-flex">
+    <a class="border me-1 w-50 text-center btn btn-primary" (click)="openForm()" routerLink="../notes-form">Add
+      Notes</a>
+    <a class="border ms-1 w-50 text-center btn btn-secondary" routerLink="/home">Back</a>
   </div>
 </div>

@@ -16,4 +16,13 @@ export class ApiService {
   postNotes(data: NotesForm): Observable<NotesForm> {
     return this.http.post<NotesForm>(this.baseUrl, data)
   }
+  deleteNote(id: number): Observable<number> {
+    return this.http.delete<number>(`${this.baseUrl}/${id}`)
+  }
+  getNoteById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${id}`)
+  }
+  putData(data: NotesForm, id: number): Observable<NotesForm> {
+    return this.http.put<NotesForm>(`${this.baseUrl}/${id}`, data)
+  }
 }

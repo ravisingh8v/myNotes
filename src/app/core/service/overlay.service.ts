@@ -19,7 +19,8 @@ export class OverlayService {
     const Portal = new ComponentPortal(component);
     const ComponentRef = this.overlayRef.attach(Portal);
     this.overlayRef.backdropClick().subscribe((res) => {
-      this.overlayRef.detach()
+      // this.overlayRef.detach()
+      alert("please click on cancel button to back")
     })
 
   }

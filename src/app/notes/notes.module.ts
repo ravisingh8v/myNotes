@@ -9,6 +9,7 @@ import { NotesFormContainerComponent } from './notes-form-container/notes-form-c
 import { NotesFormPresentationComponent } from './notes-form-container/notes-form-presentation/notes-form-presentation.component';
 import { OverlayService } from '../core/service/overlay.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NotesCommunicationService } from './service/notes-communication.service';
 
 
 @NgModule({
@@ -24,6 +25,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     NotesRoutingModule,
     ReactiveFormsModule
   ],
-  // providers: [OverlayService]
+  providers: []
 })
 export class NotesModule { }
