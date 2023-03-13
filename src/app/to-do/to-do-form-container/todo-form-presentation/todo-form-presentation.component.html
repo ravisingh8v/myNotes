@@ -5,8 +5,11 @@
       <span class="fs-3 bi {{currentTheme}}" (click)="themeChange()"></span>
     </div>
     <div>
-      <input type="text" placeholder="Add todo here" class="form-control fs-5 p-2"
-        [ngClass]="isDark? 'text-white bg-dark':'text-dark'">
+      <form action="" [formGroup]="todoForm">
+        <input type="text" placeholder="Add todo here" class="form-control fs-5 p-2"
+          [ngClass]="isDark? 'text-white bg-dark':'text-dark'" (keyup)="onSubmitTodoForm($event)"
+          formControlName="todo">
+      </form>
     </div>
   </div>
 </div>

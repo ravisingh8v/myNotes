@@ -10,5 +10,17 @@
       "description": "Bill payment on 29-2-2023",
       "id": 2
     }
+  ],
+  "todo": [
+    {
+      "todo": "hello today i will do this",
+      "active": true,
+      "id": 1
+    },
+    {
+      "todo": "i am tree because",
+      "active": true,
+      "id": 2
+    }
   ]
 }

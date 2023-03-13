@@ -8,6 +8,7 @@ import { TodoListPresentationComponent } from './todo-list-container/todo-list-p
 import { ToDoFormContainerComponent } from './to-do-form-container/to-do-form-container.component';
 import { TodoFormPresentationComponent } from './to-do-form-container/todo-form-presentation/todo-form-presentation.component';
 import { TodoCommunicationServiceService } from './service/todo-communication-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TodoCommunicationServiceService } from './service/todo-communication-se
   ],
   imports: [
     CommonModule,
-    ToDoRoutingModule
+    ToDoRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
 
