@@ -10,6 +10,7 @@ import { todoForm } from '../to-do-form-container/todo-form-model';
 })
 export class TodoListContainerComponent implements OnInit {
   public todoList: Observable<todoForm[]>
+  // public
   constructor(private _apiService: ApiService) {
     this.todoList = this._apiService.getTodoList()
   }
@@ -21,6 +22,10 @@ export class TodoListContainerComponent implements OnInit {
     this._apiService.deleteTodo(id).subscribe((res) => {
       this.todoList = this._apiService.getTodoList()
 
+    })
+  }
+  getListDataById(id: number) {
+    this._apiService.getTodoById(id).subscribe((res) => {
     })
   }
   // getTodoList() {

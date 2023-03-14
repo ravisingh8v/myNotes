@@ -1,1 +1,2 @@
-<app-todo-form-presentation (todoList)="postTodoList($event)"></app-todo-form-presentation>
+<app-todo-form-presentation (todoList)="postTodoList($event)" (listCurrentId)="getListDataById($event)"
+  (editTodo)="editTodo($event)" [currentTodoList]="currentTodoList | async"></app-todo-form-presentation>

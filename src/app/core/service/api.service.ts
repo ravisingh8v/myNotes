@@ -42,4 +42,10 @@ export class ApiService {
   deleteTodo(id: number): Observable<number> {
     return this.http.delete<number>(`${this.todoBaseUrl}/${id}`)
   }
+  getTodoById(id: number): Observable<todoForm> {
+    return this.http.get<todoForm>(this.todoBaseUrl + '/' + id)
+  }
+  putTodoData(id: number, data: todoForm): Observable<todoForm> {
+    return this.http.put<todoForm>(this.todoBaseUrl + '/' + id, data)
+  }
 }

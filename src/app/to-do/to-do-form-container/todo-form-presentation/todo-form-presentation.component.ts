@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form, FormGroup } from '@angular/forms';
 import { TodoCommunicationServiceService } from '../../service/todo-communication-service.service';
 import { todoForm } from '../todo-form-model';
@@ -11,13 +11,28 @@ import { TodoFormPresenterService } from '../todo-form-presenter/todo-form-prese
 })
 export class TodoFormPresentationComponent implements OnInit {
   @Output() todoList: EventEmitter<todoForm>
+  @Output() listCurrentId: EventEmitter<number>
+  @Output() editTodo: EventEmitter<todoForm>
+  @Input() set currentTodoList(res: todoForm | null) {
+    if (res) {
+      this._currentTodo = res;
+      this.todoForm.patchValue(this._currentTodo)
+    }
+  }
+  public get currentTodo(): todoForm {
+    return this._currentTodo
+  }
+
   public darkThemeIcon: string;
   public currentTheme: string;
   public isDark: Boolean;
   public todoForm: FormGroup;
-
+  private _currentTodo!: todoForm;
   constructor(private _todoFormPresenterService: TodoFormPresenterService, private todoCommunicationService: TodoCommunicationServiceService) {
     this.todoList = new EventEmitter()
+    this.editTodo = new EventEmitter()
+    this.listCurrentId = new EventEmitter()
+
     this.darkThemeIcon = "bi-moon-fill"
     this.currentTheme = this.darkThemeIcon;
     this.isDark = false
@@ -36,8 +51,21 @@ export class TodoFormPresentationComponent implements OnInit {
 
     // sending todo form data to container
     this._todoFormPresenterService.todoList.subscribe((res) => {
-      this.todoCommunicationService.todoList.next(res)
-      this.todoList.emit(res)
+      if (this.currentTodo) {
+        console.log(this.currentTodo);
+        this.todoCommunicationService.atferUpdateTodo.next(res)
+        this.editTodo.emit(res)
+        this.todoForm.reset()
+      } else {
+        console.log('worked');
+
+        this.todoCommunicationService.todoList.next(res)
+        this.todoList.emit(res)
+      }
+    })
+    // for getting list id
+    this.todoCommunicationService.getTodoById.subscribe((id) => {
+      this.listCurrentId.emit(id);
     })
   }
 

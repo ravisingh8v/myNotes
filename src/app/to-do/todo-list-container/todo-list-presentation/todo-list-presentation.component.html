@@ -8,7 +8,8 @@
       <div>
         <input type="checkbox" name="" id="todo-task{{i}}" class="me-2"><span>{{data.todo}}</span>
       </div>
-      <span class="note-list-close bi bi-x-lg" (click)="deleteTodoData(data)"></span>
+      <span class="note-list-close bi bi-x-lg " (click)="deleteTodoData(data)"></span>
+      <span class="note-list-edit bi bi-pencil-square me-2" (click)="editTodoData(data)"></span>
     </label>
   </div>
   <!-- Action Bar  -->
