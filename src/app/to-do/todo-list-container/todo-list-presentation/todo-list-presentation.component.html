@@ -1,24 +1,30 @@
 <div class="todo-list-wrapper h-100 d-flex flex-column justify-content-start align-items-center"
   [ngClass]="isDark? 'bg-black':'bg-light'">
   <!-- Todo lists  -->
-  <div class="w-25 border border-light d-flex text-white flex-column" [ngClass]="isDark? 'bg-dark':'bg-primary'">
-    <label for="todo-task{{i}}"
-      class="list-card border-bottom px-3 py-4 d-flex align-content-center justify-content-between"
-      *ngFor="let data of todoList let i=index">
-      <div>
-        <input type="checkbox" name="" id="todo-task{{i}}" class="me-2"><span>{{data.todo}}</span>
-      </div>
+  <div class="w-25 border border-light d-flex text-white flex-column">
+    <div class="list-card border-bottom px-3  d-flex align-content-center justify-content-between"
+      *ngFor="let data of todoList let i=index"
+      [ngClass]="(!data.active?'bg-success':'') || (isDark? 'bg-dark':'bg-primary')">
+      <label for="todo-task{{i}}" class="h-100 w-75 py-4">
+        <input type="checkbox" #input name="" id="todo-task{{i}}" class="me-2" (change)="onChecked($event,i)"
+          [checked]="!data.active" [disabled]="!data.active"><span>{{data.todo}}</span>
+      </label>
       <span class="note-list-close bi bi-x-lg " (click)="deleteTodoData(data)"></span>
-      <span class="note-list-edit bi bi-pencil-square me-2" (click)="editTodoData(data)"></span>
-    </label>
+      <span class="note-list-edit bi bi-pencil-square me-2" [ngClass]="!data.active? 'd-none':''"
+        (click)="editTodoData(data)"></span>
+      <span></span>
+    </div>
   </div>
   <!-- Action Bar  -->
   <div class="w-25 py-2 px-2 border border-light d-flex justify-content-between align-items-center text-white"
     [ngClass]="isDark?'bg-dark':'bg-primary'">
-    <span><a>All</a></span>
+    <span>
+      <!-- <a (click)="allData()">All</a> -->
+    </span>
     <div>
-      <span class="me-2"><a>Active</a></span>
-      <span><a>Completed</a></span>
+      <!-- <span class="me-2"><a (click)="activeData()">Active</a></span> -->
+      <span><a>clear all</a></span>
+      <!-- (click)="clearAllTodo()" -->
     </div>
   </div>
 </div>

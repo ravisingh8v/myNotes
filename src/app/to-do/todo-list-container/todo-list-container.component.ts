@@ -28,6 +28,20 @@ export class TodoListContainerComponent implements OnInit {
     this._apiService.getTodoById(id).subscribe((res) => {
     })
   }
+  checkedData(data: todoForm) {
+    this._apiService.putTodoData(data.id, data).subscribe((res) => {
+      console.log(res);
+
+    })
+  }
+  // clearAll(event: todoForm[]) {
+  //   event.forEach((res) => {
+
+  //     this._apiService.deleteAllTodo(res.id).subscribe((res: any) => {
+  //     })
+  //   })
+  //   this.todoList = this._apiService.getTodoList()
+  // }
   // getTodoList() {
   //   this._apiService.getTodoList().subscribe((res) => {
   //   })

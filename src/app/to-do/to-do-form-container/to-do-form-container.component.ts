@@ -17,14 +17,11 @@ export class ToDoFormContainerComponent {
     this._apiService.postTodoList(list).subscribe((res) => {
     })
   }
-  getListDataById(id: number) {
-    this.currentTodoList = this._apiService.getTodoById(id)
-  }
+  // getListDataById(id: number) {
+  //   this.currentTodoList = this._apiService.getTodoById(id)
+  // }
   editTodo(data: todoForm) {
-
     this._apiService.putTodoData(data.id, data).subscribe((res) => {
-      // console.log(res);
     })
-
   }
 }

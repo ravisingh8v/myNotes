@@ -1,2 +1,3 @@
-<app-todo-list-presentation [todoLists]="todoList | async"
-  (deleteTodo)="deleteTodo($event)"></app-todo-list-presentation>
+<app-todo-list-presentation [todoLists]="todoList | async" (deleteTodo)="deleteTodo($event)"
+  (checkedData)="checkedData($event)"></app-todo-list-presentation>
+<!-- (clearAll)="clearAll($event)" -->

@@ -39,8 +39,11 @@ export class TodoFormPresenterService {
 
   onSubmitTodoForm(event: any, formData: FormGroup) {
     if (event.key === 'Enter' && event.target.value.length >= 1) {
+      formData.value.active = true;
       this.todoList.next(formData.value)
       formData.reset()
     }
   }
+  // onSubmitForm(formData: FormGroup) {
+  // }
 }

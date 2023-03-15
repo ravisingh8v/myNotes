@@ -6,7 +6,7 @@ import { todoForm } from '../to-do-form-container/todo-form-model';
 export class TodoCommunicationServiceService {
   public themesSubject: Subject<string>
   public todoList: Subject<todoForm>
-  public getTodoById: Subject<number>
+  public getTodoById: Subject<todoForm>
   public atferUpdateTodo: Subject<todoForm>
   constructor() {
 

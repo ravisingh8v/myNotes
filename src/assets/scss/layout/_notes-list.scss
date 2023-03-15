@@ -13,7 +13,7 @@
 .list-card {
   position: relative;
   max-height: 120px;
-  transition: all 5s linear;
+  transition: all 0.3s linear;
   .note-list-close {
     @extend %note-action-icon;
     right: 3%;

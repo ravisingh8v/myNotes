@@ -9,6 +9,7 @@ import { environment } from 'src/environment/environment.prod';
 export class ApiService {
   public notesBaseUrl: string;
   public todoBaseUrl: string;
+  public b: any
   constructor(private http: HttpClient) {
     this.notesBaseUrl = environment.notesUrl
     this.todoBaseUrl = environment.todoUrl
@@ -41,6 +42,9 @@ export class ApiService {
   }
   deleteTodo(id: number): Observable<number> {
     return this.http.delete<number>(`${this.todoBaseUrl}/${id}`)
+  }
+  deleteAllTodo(data: number) {
+    return this.http.delete(`${this.todoBaseUrl}/${data}`)
   }
   getTodoById(id: number): Observable<todoForm> {
     return this.http.get<todoForm>(this.todoBaseUrl + '/' + id)
